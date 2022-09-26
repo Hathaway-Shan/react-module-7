@@ -3,8 +3,8 @@ import { useBookDetail } from '../../hooks/useBookDetail';
 import { Link, useParams } from 'react-router-dom';
 
 function BookDetail() {
-  const { id } = useParams();
-  const { book, loading, error } = useBookDetail(id);
+  const params = useParams();
+  const { book, loading, error } = useBookDetail(params);
 
   if (error)
     return (
@@ -15,7 +15,14 @@ function BookDetail() {
 
   if (loading) return <h3>Loading book...</h3>;
 
-  return <Book book={book} showDetail />;
+  return (
+    <div>
+      <h3>
+        <Link to="/books">Back to Index</Link>
+      </h3>
+      <Book book={book} showDetail />
+    </div>
+  );
 }
 
 export default BookDetail;
