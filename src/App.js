@@ -11,10 +11,8 @@ function App() {
       <main className="container">
         <h1>Library Catalog</h1>
         <Switch>
-          <Route path="/" component={Home}>
-            <Home />
-            {/* <BookList /> */}
-          </Route>
+          <Route path="/books" component={BookList} />
+          <Route path="/" component={Home} />
         </Switch>
       </main>
     </Router>
